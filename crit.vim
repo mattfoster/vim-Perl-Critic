@@ -13,11 +13,9 @@ VIM::DoCommand(':sign define low_severity text=⑶ texthl=low_severity');
 VIM::DoCommand(':sign define medium_severity text=② texthl=medium_severity');
 VIM::DoCommand(':sign define high_severity text=① texthl=high_severity');
 
-use lib "$ENV{'HOME'}/.vim/perl";
-
-use Criticism qw( criticise );
+use Vim::Criticism qw( criticise );
 # Tell the package we're in vim.
-Criticism::in_vim;
+Vim::Criticism::in_vim;
 criticise();
 
 END_PERL
