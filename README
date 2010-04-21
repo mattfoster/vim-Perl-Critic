@@ -4,6 +4,11 @@ Vim-Criticism
 A perl critic plugin for vim which creates marks and an awesome quickfix of
 your not-so-quick to fix errors.
 
+Usage:
+======
+
+Type <leader>cc (typically \cc), to fire up the  quickfix list of your perl foibles.
+
 TODO:
 =====
 
