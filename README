@@ -1,0 +1,10 @@
+Vim-Criticism
+-------------
+
+A perl critic plugin for vim which creates marks and an awesome quickfix of
+your not-so-quick to fix errors.
+
+TODO:
+=====
+
+* Allow configuration of colours and symbols.
