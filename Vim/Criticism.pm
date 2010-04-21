@@ -41,7 +41,6 @@ sub criticise {
         $file = VIM::Eval('expand("%:p")');
         VIM::DoCommand(":setlocal errorformat='%f:%l:%c:%m'");
         VIM::DoCommand(':sign unplace *');
-        #print $fh "Criticising!: $file";
     }
     else {
        croak 'Not running in vim. No $file set'; 
@@ -66,10 +65,6 @@ sub criticise {
     my $joined = join( '\n', @quoted_vs );
     my $quoted = '"' . $joined . '\n"'; 
     
-    open my $FH, '>', '/tmp/vim.log';
-    print $FH $joined, "\n", $quoted, "\n";
-    close $FH;
-
     # Set up the quickfix list of errors
     if ($in_vim) {
         VIM::DoCommand(':lexpr '.$quoted);
