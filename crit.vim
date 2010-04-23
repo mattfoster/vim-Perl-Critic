@@ -20,6 +20,8 @@ let g:crit_high_sev_text='① '
 let g:crit_high_sev_ctermfg='black'
 let g:crit_high_sev_ctermbg='red'
 
+let g:crit_severity_level=3
+
 if has('perl') 
 " Define some useful commands and variables:
 function! ShowCriticisms()
@@ -44,7 +46,7 @@ VIM::DoCommand(
   . ' ctermbg=' . VIM::Eval('g:crit_high_sev_ctermbg')
 );
 VIM::DoCommand(':sign define low_severity text=' . VIM::Eval('g:crit_low_sev_text') . ' texthl=low_severity');
-VIM::DoCommand(':sign define medium_severity text=' . VIM::Eval('g:crit_med_sev_text') . ' texthl=medium_severity');
+VIM::DoCommand(':sign define med_severity text=' . VIM::Eval('g:crit_med_sev_text') . ' texthl=med_severity');
 VIM::DoCommand(':sign define high_severity text=' . VIM::Eval('g:crit_high_sev_text') . ' texthl=high_severity');
 
 use Vim::Criticism qw( criticise );
