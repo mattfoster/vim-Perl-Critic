@@ -46,8 +46,10 @@ sub criticise {
        croak 'Not running in vim. No $file set'; 
     }
 
+    my ($s, $level) = VIM::Eval('g:crit_severity_level');
+
     # Run perlcritic
-    my @unsorted_violations = critique({ -severity => 3}, $file);
+    my @unsorted_violations = critique({ -severity => $level}, $file);
 
     # Schwartzian goodness: sort by line, and severity.
     my @violations = 
