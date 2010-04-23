@@ -1,5 +1,5 @@
 # Criticism - Criticise a file in VIM, and prettify the output.
-package Vim::Criticism;
+package Vim::Perl::Critic;
 
 use warnings;
 use strict;
