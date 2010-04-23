@@ -26,10 +26,10 @@ your not-so-quick to fix errors.
 %build
 
 %install
-install -d %{buildroot}%{perl_vendorlib}/Vim/
+install -d %{buildroot}%{perl_vendorlib}/Vim/Perl
 install -d %{buildroot}/usr/share/vim/vim70/plugin/
 install -m 0555 crit.vim %{buildroot}/usr/share/vim/vim70/plugin/
-install -m 0555 Vim/Perl/Critic.pm %{buildroot}%{perl_vendorlib}/Vim
+install -m 0555 Vim/Perl/Critic.pm %{buildroot}%{perl_vendorlib}/Vim/Perl
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -40,7 +40,7 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorlib}/Vim/Perl/Critic.pm
 
 %changelog
-* Fri Apr 23 2010 Matt Foster <matt.p.foster@gmail.com> - 1.2-1
+* Fri Apr 23 2010 Matt Foster <matt.p.foster@gmail.com> - 1.3-1
 - Rename to Vim-Perl-Critic
 
 * Fri Apr 23 2010 Matt Foster <matt.p.foster@gmail.com> - 1.2-1
