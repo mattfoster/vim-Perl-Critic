@@ -1,6 +1,6 @@
-Summary: Vim-Criticism: a perl critic plugin for vim.
-Name: Vim-Criticism
-Version: 1.2
+Summary: vim-Perl-Critic: a perl critic plugin for vim.
+Name: vim-Perl-Critic
+Version: 1.3
 Release: 1
 License: MIT
 Group: System/Maintenance
@@ -11,6 +11,7 @@ Requires: vim-common
 Requires: perl
 Requires: perl-Perl-Critic
 BuildRequires: perl
+Obsoletes: Vim-Criticism
 
 %define perl_vendorlib %(eval "`%{__perl} -V:installvendorlib`"; echo $installvendorlib)
 
@@ -28,7 +29,7 @@ your not-so-quick to fix errors.
 install -d %{buildroot}%{perl_vendorlib}/Vim/
 install -d %{buildroot}/usr/share/vim/vim70/plugin/
 install -m 0555 crit.vim %{buildroot}/usr/share/vim/vim70/plugin/
-install -m 0555 Vim/Criticism.pm %{buildroot}%{perl_vendorlib}/Vim
+install -m 0555 Vim/Perl/Critic.pm %{buildroot}%{perl_vendorlib}/Vim
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -36,9 +37,12 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-,root,root,-)
 /usr/share/vim/vim70/plugin/crit.vim
-%{perl_vendorlib}/Vim/Criticism.pm
+%{perl_vendorlib}/Vim/Perl/Critic.pm
 
 %changelog
+* Fri Apr 23 2010 Matt Foster <matt.p.foster@gmail.com> - 1.2-1
+- Rename to Vim-Perl-Critic
+
 * Fri Apr 23 2010 Matt Foster <matt.p.foster@gmail.com> - 1.2-1
 - Allow configuration of severity.
 

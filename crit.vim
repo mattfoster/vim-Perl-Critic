@@ -49,9 +49,9 @@ VIM::DoCommand(':sign define low_severity text=' . VIM::Eval('g:crit_low_sev_tex
 VIM::DoCommand(':sign define med_severity text=' . VIM::Eval('g:crit_med_sev_text') . ' texthl=med_severity');
 VIM::DoCommand(':sign define high_severity text=' . VIM::Eval('g:crit_high_sev_text') . ' texthl=high_severity');
 
-use Vim::Criticism qw( criticise );
+use Vim::Perl::Critic qw( criticise );
 # Tell the package we're in vim.
-Vim::Criticism::in_vim;
+Vim::Perl::Critic::in_vim;
 criticise();
 
 END_PERL

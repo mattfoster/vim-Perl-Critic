@@ -1,4 +1,4 @@
-Vim-Criticism
+Vim-Perl-Critic
 -------------
 
 A perl critic plugin for vim which creates marks and an awesome quickfix of
