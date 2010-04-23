@@ -7,7 +7,18 @@ your not-so-quick to fix errors.
 Usage:
 ======
 
-Type <leader>cc (typically \cc), to fire up the  quickfix list of your perl foibles.
+Type `<leader>cc` (typically `\cc`), to fire up the quickfix list of your perl foibles.
+
+To clear the signs from the margin, use:
+
+        :sign unplace *
+
+You can also set:
+
+        autocmd! BufReadPost,BufWritePost,FileReadPost,FileWritePost *.pl call ShowCriticisms()
+        autocmd! BufReadPost,BufWritePost,FileReadPost,FileWritePost *.pm call ShowCriticisms()
+
+To have it run whenever you save or load a perl buffer.
 
 Configuration:
 ==============
