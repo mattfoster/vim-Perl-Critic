@@ -39,11 +39,11 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorlib}/Vim/Criticism.pm
 
 %changelog
-* Fri Apr 23 2010 Matt Foster <mpf@netcraft.com> - 1.2-1
+* Fri Apr 23 2010 Matt Foster <matt.p.foster@gmail.com> - 1.2-1
 - Allow configuration of severity.
 
-* Fri Apr 23 2010 Matt Foster <mpf@netcraft.com> - 1.1-1
+* Fri Apr 23 2010 Matt Foster <matt.p.foster@gmail.com> - 1.1-1
 - Allow configuration of some options.
 
-* Tue Apr 20 2010 Matt Foster <mpf@netcraft.com> - 1.0-1
+* Tue Apr 20 2010 Matt Foster <matt.p.foster@gmail.com> - 1.0-1
 - Initial build.
