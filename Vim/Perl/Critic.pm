@@ -28,7 +28,7 @@ sub get_element {
 Readonly my %severities => (
     1 => 'low_severity',
     2 => 'low_severity',
-    3 => 'medium_severity',
+    3 => 'med_severity',
     4 => 'high_severity',
     5 => 'high_severity'
 );
