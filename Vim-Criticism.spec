@@ -1,6 +1,6 @@
 Summary: Vim-Criticism: a perl critic plugin for vim.
 Name: Vim-Criticism
-Version: 1.0
+Version: 1.2
 Release: 1
 License: MIT
 Group: System/Maintenance
@@ -39,5 +39,11 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorlib}/Vim/Criticism.pm
 
 %changelog
+* Fri Apr 23 2010 Matt Foster <mpf@netcraft.com> - 1.2-1
+- Allow configuration of severity.
+
+* Fri Apr 23 2010 Matt Foster <mpf@netcraft.com> - 1.1-1
+- Allow configuration of some options.
+
 * Tue Apr 20 2010 Matt Foster <mpf@netcraft.com> - 1.0-1
 - Initial build.
