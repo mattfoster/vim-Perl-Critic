@@ -1,6 +1,6 @@
 Summary: vim-Perl-Critic: a perl critic plugin for vim.
 Name: vim-Perl-Critic
-Version: 1.4
+Version: 1.5
 Release: 1
 License: MIT
 Group: System/Maintenance
@@ -38,8 +38,15 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 /usr/share/vim/vim70/plugin/crit.vim
 %{perl_vendorlib}/Vim/Perl/Critic.pm
+%doc README.md
 
 %changelog
+* Tue May 4 2010 Matt Foster <matt.p.foster@gmail.com> - 1.5-1
+* Don't do anything where there are no criticisms.
+
+* Mon Apr 26 2010 Matt Foster <matt.p.foster@gmail.com> - 1.4-2
+* Package documentation.
+
 * Fri Apr 23 2010 Matt Foster <matt.p.foster@gmail.com> - 1.4-1
 - Fix bug in medium severity.
 

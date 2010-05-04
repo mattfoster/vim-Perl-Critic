@@ -51,6 +51,10 @@ sub criticise {
     # Run perlcritic
     my @unsorted_violations = critique({ -severity => $level}, $file);
 
+    if ( ! @unsorted_violations) {
+        return;
+    }
+
     # Schwartzian goodness: sort by line, and severity.
     my @violations = 
         map {$_->[0]} 
