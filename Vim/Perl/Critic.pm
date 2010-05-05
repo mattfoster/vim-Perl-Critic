@@ -52,6 +52,7 @@ sub criticise {
     my @unsorted_violations = critique({ -severity => $level}, $file);
 
     if ( ! @unsorted_violations) {
+        VIM::DoCommand(q{:echohl WarningMsg | echo "Nothing to report." | echohl None});
         return;
     }
 
