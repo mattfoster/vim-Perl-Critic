@@ -53,3 +53,4 @@ TODO:
 =====
 
 * Documentation.
+* Make ftplugin. (Just in ftplugin/perl_crit.vim)
