@@ -1,5 +1,5 @@
 Vim-Perl-Critic
--------------
+---------------
 
 A perl critic plugin for vim which creates marks and an awesome quickfix of
 your not-so-quick to fix errors.
@@ -52,5 +52,4 @@ work.
 TODO:
 =====
 
-* Documentation.
-* Make ftplugin. (Just in ftplugin/perl_crit.vim)
+See: http://github.com/mattfoster/vim-Perl-Critic/issues
