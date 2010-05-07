@@ -1,6 +1,6 @@
 Summary: vim-Perl-Critic: a perl critic plugin for vim.
 Name: vim-Perl-Critic
-Version: 1.6
+Version: 1.8
 Release: 1
 License: MIT
 Group: System/Maintenance
@@ -27,28 +27,40 @@ your not-so-quick to fix errors.
 
 %install
 install -d %{buildroot}%{perl_vendorlib}/Vim/Perl
-install -d %{buildroot}/usr/share/vim/vim70/plugin/
-install -m 0555 crit.vim %{buildroot}/usr/share/vim/vim70/plugin/
+install -d %{buildroot}%{_datadir}/vim/vim70/ftplugin/
+install -d %{buildroot}%{_datadir}/vim/vim70/doc/
+install -m 0555 perl_crit.vim %{buildroot}%{_datadir}/vim/vim70/ftplugin/
+install -m 0555 perl_crit.txt %{buildroot}%{_datadir}/vim/vim70/doc/
 install -m 0555 Vim/Perl/Critic.pm %{buildroot}%{perl_vendorlib}/Vim/Perl
+
+%post
+vim -e "+helptags %{_datadir}/vim/vim70/doc" "+q"
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
-/usr/share/vim/vim70/plugin/crit.vim
+/usr/share/vim/vim70/ftplugin/perl_crit.vim
+/usr/share/vim/vim70/doc/perl_crit.txt
 %{perl_vendorlib}/Vim/Perl/Critic.pm
 %doc README.md
 
 %changelog
-* Tue May 4 2010 Matt Foster <matt.p.foster@gmail.com> - 1.5-1
-* Report the lack of criticims to the user.
+* Fri May 7 2010 Matt Foster <matt.p.foster@gmail.com> - 1.8-1
+- Added some docs.
+
+* Fri May 7 2010 Matt Foster <matt.p.foster@gmail.com> - 1.7-1
+- Install as an ftplugin. Don't set default if variables are set already.
+
+* Tue May 4 2010 Matt Foster <matt.p.foster@gmail.com> - 1.6-1
+- Report the lack of criticims to the user.
 
 * Tue May 4 2010 Matt Foster <matt.p.foster@gmail.com> - 1.5-1
-* Don't do anything where there are no criticisms.
+- Don't do anything where there are no criticisms.
 
 * Mon Apr 26 2010 Matt Foster <matt.p.foster@gmail.com> - 1.4-2
-* Package documentation.
+- Package documentation.
 
 * Fri Apr 23 2010 Matt Foster <matt.p.foster@gmail.com> - 1.4-1
 - Fix bug in medium severity.
