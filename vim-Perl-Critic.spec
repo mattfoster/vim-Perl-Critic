@@ -11,6 +11,8 @@ Requires: vim-common
 Requires: perl
 Requires: perl-Perl-Critic
 BuildRequires: perl
+BuildRequires: vim-minimal
+BuildRequires: vim-common
 Obsoletes: Vim-Criticism
 
 %define perl_vendorlib %(eval "`%{__perl} -V:installvendorlib`"; echo $installvendorlib)
@@ -29,12 +31,17 @@ your not-so-quick to fix errors.
 install -d %{buildroot}%{perl_vendorlib}/Vim/Perl
 install -d %{buildroot}%{_datadir}/vim/vim70/ftplugin/
 install -d %{buildroot}%{_datadir}/vim/vim70/doc/
-install -m 0555 perl_crit.vim %{buildroot}%{_datadir}/vim/vim70/ftplugin/
-install -m 0555 perl_crit.txt %{buildroot}%{_datadir}/vim/vim70/doc/
-install -m 0555 Vim/Perl/Critic.pm %{buildroot}%{perl_vendorlib}/Vim/Perl
+install -m 0444 perl_crit.vim %{buildroot}%{_datadir}/vim/vim70/ftplugin/
+install -m 0444 perl_crit.txt %{buildroot}%{_datadir}/vim/vim70/doc/
+install -m 0444 Vim/Perl/Critic.pm %{buildroot}%{perl_vendorlib}/Vim/Perl
+
+# Grrrr. RHEL's vim package has a gzipped helptags file. WOFTAM.
+#cp /usr/share/vim/vim70/doc/tags tags.orig
+#cat tags tags.orig > tags.full
+#install -m 0444 tags.full  %{buildroot}%{_datadir}/vim/vim70/doc/tags
 
 %post
-vim -e "+helptags %{_datadir}/vim/vim70/doc" "+q"
+# vim -e "+helptags %{_datadir}/vim/vim70/doc" "+q"
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -43,12 +50,13 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 /usr/share/vim/vim70/ftplugin/perl_crit.vim
 /usr/share/vim/vim70/doc/perl_crit.txt
+#/usr/share/vim/vim70/doc/tags # As above.
 %{perl_vendorlib}/Vim/Perl/Critic.pm
 %doc README.md
 
 %changelog
-* Fri May 7 2010 Matt Foster <matt.p.foster@gmail.com> - 1.8-1
-- Added some docs.
+* Thu Jun 3 2010 Matt Foster <matt.p.foster@gmail.com> - 1.8-1
+- Close the location list before rerunning.
 
 * Fri May 7 2010 Matt Foster <matt.p.foster@gmail.com> - 1.7-1
 - Install as an ftplugin. Don't set default if variables are set already.
