@@ -8,7 +8,7 @@ our @EXPORT_OK = qw( criticise );
 
 use Carp;
 use Perl::Critic qw( critique );
-Perl::Critic::Violation::set_format("%f:%l:%c:%s:%m");
+Perl::Critic::Violation::set_format("%f:%l:%c:%s:%m %P");
 use Readonly;
 
 my $in_vim = 0;
@@ -41,6 +41,7 @@ sub criticise {
         $file = VIM::Eval('expand("%:p")');
         VIM::DoCommand(":setlocal errorformat='%f:%l:%c:%m'");
         VIM::DoCommand(':sign unplace *');
+        VIM::DoCommand(qq(:lclose));
     }
     else {
        croak 'Not running in vim. No $file set'; 
