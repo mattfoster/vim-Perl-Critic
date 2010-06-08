@@ -49,6 +49,13 @@ set the following variables.
 Be warned, there is no sanity checking of these, and empty text variables don't
 work.
 
+You'll need to ensure you've enabled ftplugin support. To do this, add:
+
+        filetype plugin indent on
+
+To your .vimrc
+
+
 TODO:
 =====
 
